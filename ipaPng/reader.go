@@ -1,14 +1,13 @@
 package ipaPng
 
 import (
-	"bytes"
 	"hash/crc32"
 	"io"
 )
 
 // Decode reads a PNG image from r and returns it as an image.Image.
 // The type of Image returned depends on the PNG contents.
-func Decode(r *bytes.Reader) (*IpaPNG, error) {
+func Decode(r io.ReadSeeker) (*IpaPNG, error) {
 	cgbi := &IpaPNG{
 		r:    r,
 		crc:  crc32.NewIEEE(),
