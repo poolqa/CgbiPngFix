@@ -10,8 +10,8 @@ import (
 // The type of Image returned depends on the PNG contents.
 func Decode(r *bytes.Reader) (*IpaPNG, error) {
 	cgbi := &IpaPNG{
-		r:   r,
-		crc: crc32.NewIEEE(),
+		r:    r,
+		crc:  crc32.NewIEEE(),
 		IDAT: []byte{120, 156}, // default set zlib header
 	}
 	if err := cgbi.checkHeader(); err != nil {
