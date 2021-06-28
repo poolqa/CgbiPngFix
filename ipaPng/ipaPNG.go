@@ -77,7 +77,7 @@ var chunkOrderError = errors.New("chunk out of order")
 
 type IpaPNG struct {
 	Img               image.Image
-	r                 *bytes.Reader
+	r                 io.ReadSeeker
 	crc               hash.Hash32
 	IsCgBI            bool
 	width             int

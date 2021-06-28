@@ -1,7 +1,6 @@
 package main
 
 import (
-	"CgbiPngFix/ipaPng"
 	"bytes"
 	"flag"
 	"fmt"
@@ -9,6 +8,8 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+
+	"github.com/poolqa/CgbiPngFix/ipaPng"
 )
 
 type CommandOptions struct {
