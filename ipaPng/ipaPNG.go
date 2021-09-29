@@ -198,7 +198,7 @@ func (cgbi *IpaPNG) parseIHDR(iHDR *Chunk) error {
 	cgbi.FilterMethod = uint32(tmp[11])
 
 	// Only interlace methods 0 and 1 are supported
-	if uint32(tmp[12]) != 0 {
+	if uint32(tmp[12]) != 0 && uint32(tmp[12]) != 1 {
 		errString := fmt.Sprintf("invalid interlace method - expected 0 or 1 - got %x",
 			tmp[12])
 		return errors.New(errString)
