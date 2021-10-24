@@ -14,8 +14,7 @@ import (
 
 type CommandOptions struct {
 	Output string
-	Input string
-
+	Input  string
 }
 
 var ShowHelper bool
@@ -32,7 +31,6 @@ func init() {
 	// 改变默认的 Usage，flag包中的Usage 其实是一个函数类型。这里是覆盖默认函数实现，具体见后面Usage部分的分析
 	flag.Usage = usage
 }
-
 
 func usage() {
 	fmt.Fprintf(os.Stderr, `ios png fix version: v0.0.1
@@ -73,7 +71,7 @@ func doCgbiToPng(input string, output string) {
 		fmt.Printf("err:%v\n", err)
 		log.Fatal(err)
 	}
-	fo, err := os.OpenFile(output, os.O_WRONLY|os.O_CREATE, 666)
+	fo, err := os.OpenFile(output, os.O_WRONLY|os.O_CREATE, os.FileMode(0666))
 	if err != nil {
 		fmt.Printf("err:%v\n", err)
 		log.Fatal(err)
